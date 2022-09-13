@@ -13,14 +13,14 @@ func main() {
 	app.Name = "primes"
 	app.Usage = "Find primes, factors, and reduce fractions"
 	app.Commands = []cli.Command{
-		cli.Command{
+		{
 			Name:      "prime",
 			Aliases:   []string{"p"},
 			Usage:     "Find primes until specified number",
 			Action:    findPrimes,
 			ArgsUsage: "number to find primes until",
 		},
-		cli.Command{
+		{
 			Name:      "factorize",
 			Aliases:   []string{"f"},
 			Usage:     "Factorize given number",
@@ -31,9 +31,13 @@ func main() {
 					Name:  "json,j",
 					Usage: "Show factors by json format",
 				},
+				cli.BoolFlag{
+					Name:  "bash,b",
+					Usage: "Show factors by bash format",
+				},
 			},
 		},
-		cli.Command{
+		{
 			Name:      "reduce",
 			Aliases:   []string{"r"},
 			Usage:     "Reduce fraction",
