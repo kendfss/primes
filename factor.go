@@ -7,15 +7,15 @@ import (
 
 // Factors represents factors
 type Factors struct {
-	of   int64
-	list []int64
 	dict map[int64]int
+	list []int64
+	of   int64
 }
 
 // Factorize factorizes given number
 func Factorize(num int64) *Factors {
 	f := &Factors{of: num, list: []int64{}, dict: map[int64]int{}}
-	//for _, prime := range Until(f.of).List() {
+	// for _, prime := range Until(f.of).List() {
 	for _, prime := range Globally.Until(f.of).List() {
 		if f.of%prime == 0 {
 			f.add(prime)
@@ -107,9 +107,11 @@ type sorter []int64
 func (s sorter) Len() int {
 	return len(s)
 }
+
 func (s sorter) Less(i, j int) bool {
 	return s[i] < s[j]
 }
+
 func (s sorter) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }

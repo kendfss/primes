@@ -2,14 +2,13 @@ package primes
 
 // Primes represents prime numbers
 type Primes struct {
-	target     int64
 	dictionary map[int64]bool
 	list       []int64
+	target     int64
 }
 
 // Until finds prime numbers until specified number.
 func Until(n int64) *Primes {
-
 	if known := Globally.Know(n); known != nil {
 		return known
 	}

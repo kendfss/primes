@@ -8,10 +8,10 @@ import (
 
 // Fraction represents fraction
 type Fraction struct {
+	before      *Fraction
+	commons     *Factors
 	numerator   int64
 	denominator int64
-	commons     *Factors
-	before      *Fraction
 }
 
 var fractionLikeExp = regexp.MustCompile("^([0-9]+)/([0-9]+)$")
